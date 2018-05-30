@@ -1,0 +1,9 @@
+<% if logged_in? %>
+  <div>
+    <%= current_user.name %> | <%= link_to "ログアウト", logout_path, method: :delete, data: { confirm: "ログアウト" } %>
+  </div>
+<% else %>
+  <div>
+    <%= link_to "新規登録", signup_path %> | <%= link_to "ログイン", login_path %>
+  </div>
+<% end %>
