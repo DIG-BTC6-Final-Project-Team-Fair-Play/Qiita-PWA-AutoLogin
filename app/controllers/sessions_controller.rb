@@ -1,6 +1,8 @@
 class SessionsController < ApplicationController
   def new
-    @ios_pwa = true if params['ios_pwa'] == 'true'
+    # パラメータに「?launcher=true」が指定されていたら
+    # PWAとしてアクセスしてきたと判断する
+    @pwa_ios = true if params['launcher'] == 'true'
   end
   
   def create

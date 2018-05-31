@@ -1,6 +1,6 @@
-<h3>ログイン<%= @ios_pwa ? '(iOS PWA)' : '' %></h3>
+<h3>ログイン<%= @pwa_ios ? '(iOS PWA)' : '' %></h3>
 
-<%= form_for :session, url: sessions_path, remote: (@ios_pwa ? true : false) do |f| %>
+<%= form_for :session, url: sessions_path, remote: (@pwa_ios ? true : false) do |f| %>
 
   <div class="field">
     <%= f.label :name %><br>
@@ -16,7 +16,7 @@
   </div>
 <% end %>
 
-<% if @ios_pwa %>
+<% if @pwa_ios %>
   <script>
     // ログインしてない場合、
     <% if logged_in? == false %>
