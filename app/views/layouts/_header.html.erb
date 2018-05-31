@@ -1,24 +1,26 @@
 <% if logged_in? %>
   <div>
-    【通常Menu】
+    【通常 Menu】
     <%= current_user.name %> | <%= link_to "ログアウト", logout_path, method: :delete, data: { confirm: "ログアウト" } %>
   </div>
   <div>
-    【iOS Menu】
+    【PWA Menu】
     <%= current_user.name %>
     | <%= link_to "ログアウト(iOS PWA対応)", logout_path, method: :delete, data: { confirm: "ログアウト" }, remote: true %>
   </div>
 <% else %>
   <div>
-    【通常Menu】
+    【通常 Menu】
     <%= link_to "新規登録", signup_path %> | <%= link_to "ログイン", login_path %>
   </div>
   <div>
-    【iOS Menu】
-    <%= link_to "新規登録", signup_path %> | <%= link_to "ログイン(iOS PWA)", "#{login_path}/?launcher=true" %>
+    【PWA Menu】
+    <%= link_to "新規登録", signup_path %> | <%= link_to "ログイン(iOS PWA対応)", "#{login_path}/?launcher=true" %>
   </div>
-  <div>【Debug】
-  <%= link_to "ユーザ一覧", users_path %></div>
 <% end %>
+
+<div>【Debug】
+  <%= link_to "ユーザ一覧", users_path %>
+</div>
 
 <hr>
