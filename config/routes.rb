@@ -2,7 +2,7 @@ Rails.application.routes.draw do
   
   ##
   # root
-  root 'users#index'
+  root 'static_pages#index'
   
   # users
   resources :users

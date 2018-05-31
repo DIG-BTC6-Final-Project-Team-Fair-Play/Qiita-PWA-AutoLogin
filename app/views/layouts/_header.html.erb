@@ -1,26 +1,29 @@
+<div>[Link]
+  <%= link_to "TOP", root_path %> | <%= link_to "users", users_path %>
+  <% if !logged_in? %>
+    | <%= link_to "Sing up", signup_path %>
+  <% end %>
+</div>
+
 <% if logged_in? %>
   <div>
-    【通常 Menu】
-    <%= current_user.name %> | <%= link_to "ログアウト", logout_path, method: :delete, data: { confirm: "ログアウト" } %>
+    [Normal Menu]
+    <%= current_user.name %> | <%= link_to "Logout", logout_path, method: :delete, data: { confirm: "Logout" } %>
   </div>
   <div>
-    【PWA Menu】
+    [PWA Menu]
     <%= current_user.name %>
-    | <%= link_to "ログアウト(iOS PWA対応)", logout_path, method: :delete, data: { confirm: "ログアウト" }, remote: true %>
+    | <%= link_to "Logout", logout_path, method: :delete, data: { confirm: "Logout" }, remote: true %>
   </div>
 <% else %>
   <div>
-    【通常 Menu】
-    <%= link_to "新規登録", signup_path %> | <%= link_to "ログイン", login_path %>
+    [Normal Menu]
+    <%= link_to "Login", login_path %>
   </div>
   <div>
-    【PWA Menu】
-    <%= link_to "新規登録", signup_path %> | <%= link_to "ログイン(iOS PWA対応)", "#{login_path}/?launcher=true" %>
+    [PWA Menu]
+    <%= link_to "Login", "#{login_path}/?launcher=true" %>
   </div>
 <% end %>
-
-<div>【Debug】
-  <%= link_to "ユーザ一覧", users_path %>
-</div>
 
 <hr>

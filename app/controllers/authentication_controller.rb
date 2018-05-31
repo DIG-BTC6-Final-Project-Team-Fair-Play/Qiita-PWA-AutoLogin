@@ -5,7 +5,11 @@ class AuthenticationController < ApplicationController
   def authenticate
     user = User.find_by(token: authentication_params[:token])
     if user
+      
+      # SessionとCookieにuser.idを保存
       session[:user_id] = user.id
+      cookies[:user_id] = user.id
+      
       render json: { 'message': 'Authentication success' }, status: :ok
     else
       render json: { 'message': 'Authentication failure' }, status: :unauthorized

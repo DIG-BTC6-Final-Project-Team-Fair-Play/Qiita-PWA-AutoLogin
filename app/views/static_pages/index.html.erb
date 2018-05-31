@@ -1,0 +1,39 @@
+<% if logged_in? %>
+  Logged in as <%= current_user.name %>
+<% else %>
+  Not logged in
+<% end %>
+
+<hr>
+
+Cookie<br>
+- session[:user_id] = <%= session[:user_id] %><br>
+- cookies[:user_id] = <%= cookies[:user_id] %><br>
+<%= link_to "reset session/cookie", logout_path, method: :delete %><br>
+<br>
+LocalStorage<br>
+- key: token<br>
+- value: <span id="token_value"></span><br>
+<a href="javascript:void(0)" onclick="remove();">remove token</a>
+<hr>
+
+<script>
+  // localstorageにtokenをgetして、value欄に表示する
+  function get() {
+    // ローカルストレージからtokenを取得
+    var token = localStorage.getItem("token");
+    // token: 欄に取得したtokenを表示
+    document.getElementById("token_value").innerText = token;
+  }
+
+  // localstorageからtokenを削除する
+  function remove() {
+    // ローカルストレージからtokenを削除
+    localStorage.removeItem("token");
+    get();
+  }
+
+  window.onload = function () {
+    get();
+  }
+</script>
