@@ -1,0 +1,9 @@
+console.log('[debug] session create success');
+console.log('[debug] token: <%= @token %>');
+
+// LocalStorageにtokenを保存する
+console.log('[debug] set LocalStorage');
+localStorage.setItem("token", "<%= @token %>");
+
+// root_pathへページ遷移
+window.location.href = '<%= root_path %>';

@@ -1,4 +1,7 @@
-<%= form_for :session, url: sessions_path do |f| %>
+<h3>ログイン<%= @ios_pwa ? '(iOS PWA)' : '' %></h3>
+
+<%= form_for :session, url: sessions_path, remote: (@ios_pwa ? true : false) do |f| %>
+
   <div class="field">
     <%= f.label :name %><br>
     <%= f.text_field :name %>
@@ -11,4 +14,60 @@
   <div class="actions">
     <%= f.submit %>
   </div>
+<% end %>
+
+<% if @ios_pwa %>
+  <script>
+    // ログインしてない場合、
+    <% if logged_in? == false %>
+    $(function () {
+      // autoLoginを実行させる
+      autoLogin();
+    });
+    <% end %>
+
+    function autoLogin() {
+
+      console.log("[debug] auto login");
+
+      // LocalStorageからtokenを取得
+      var token = localStorage.getItem("token");
+
+      // tokenが空じゃない場合、
+      if (token != null) {
+        console.log("[debug] Token exists");
+
+        // POSTするjsonを作成
+        var data = {
+          "authentication":
+            {
+              token: token
+            }
+        };
+        // Ajaxでtoken認証を実施
+        $.ajax({
+          type: "post",
+          url: "<%= authentication_path %>",
+          data: JSON.stringify(data),
+          contentType: 'application/json',
+          dataType: "json",
+
+          // token認証を成功した場合、
+          success: function (data) {
+            console.log("[debug] auto login success");
+            // root_pathへページ遷移
+            window.location.href = '<%= root_path %>';
+          },
+
+          // token認証に失敗した場合、
+          error: function (data) {
+            console.log("[debug] auto login fail");
+          }
+        });
+
+      } else {
+        console.log("[debug] No token exists");
+      }
+    }
+  </script>
 <% end %>

@@ -1,0 +1,7 @@
+console.log('[debug] session destroy success');
+
+// LocalStorageからtokenを削除する
+localStorage.removeItem("token");
+
+// root_pathへページ遷移
+window.location.href = '<%= root_path %>';
