@@ -19,7 +19,7 @@ class SessionsController < ApplicationController
         
         # 「remote:true」が指定されてるフォームからログインした場合は
         # 「create.js.erb」でtokenをLocalStorageに保存する
-        format.js { @token = user.token }
+        format.js { @token = user.token, @id = user.id }
       end
     
     else

@@ -5,5 +5,5 @@ console.log('[debug] token: <%= @token %>');
 console.log('[debug] set LocalStorage');
 localStorage.setItem("token", "<%= @token %>");
 
-// root_pathへページ遷移
-window.location.href = '<%= root_path %>';
+// user_pathにページ遷移
+window.location.href = '<%= user_path(@id) %>';
