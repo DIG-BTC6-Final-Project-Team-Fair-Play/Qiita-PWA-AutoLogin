@@ -14,7 +14,14 @@
 <% else %>
   <div>
     [Menu]
-    <%= link_to "Login", login_path %> | <%= link_to "Login(PWA StartURL)", "#{login_path}/?launcher=true" %>
+    <%= link_to "Login", login_path %>
+  </div>
+
+  <hr>
+
+  <div>
+    [Debug]
+    <%= link_to "Login -PWA StartURL-", "#{login_path}?launcher=true" %>
   </div>
 <% end %>
 

@@ -7,10 +7,22 @@
 
   <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
   <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
-</head>
 
+  <%= render 'layouts/pwa' %>
+  <%= render 'layouts/favicon' %>
+  <%= render 'layouts/mobile' %>
+  <%= render 'layouts/apple' %>
+  <%= render 'layouts/ms' %>
+
+  <style>
+    html {
+      font-size: 200%;
+    }
+  </style>
+</head>
 <body>
 <%= render 'layouts/header' %>
 <%= yield %>
 </body>
 </html>
+
