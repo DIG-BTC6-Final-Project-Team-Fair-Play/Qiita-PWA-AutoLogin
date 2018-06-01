@@ -6,7 +6,8 @@ class SessionsController < ApplicationController
     
     # パラメータに「?launcher=true」が指定されていたら
     # PWAとしてアクセスしてきたと判断する
-    @pwa = true if params['launcher'] == 'true'
+    require 'browser'
+    @pwa = true if (params['launcher'] == 'true' && browser.platform.ios? )
   end
   
   def create

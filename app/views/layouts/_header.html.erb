@@ -1,4 +1,4 @@
-<div>[Link]
+<div>[Menu]
   <%= link_to "TOP", root_path %> | <%= link_to "users", users_path %>
   <% if !logged_in? %>
     | <%= link_to "Sing up", signup_path %>
@@ -11,7 +11,7 @@
     <%= current_user.name %> | <%= link_to "Logout", logout_path, method: :delete, data: { confirm: "Logout" } %>
   </div>
   <div>
-    [PWA Menu]
+    [iosPWA Menu]
     <%= current_user.name %>
     | <%= link_to "Logout", logout_path, method: :delete, data: { confirm: "Logout" }, remote: true %>
   </div>
@@ -21,7 +21,7 @@
     <%= link_to "Login", login_path %>
   </div>
   <div>
-    [PWA Menu]
+    [iosPWA Menu]
     <%= link_to "Login", "#{login_path}/?launcher=true" %>
   </div>
 <% end %>

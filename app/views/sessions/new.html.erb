@@ -1,4 +1,4 @@
-<h3><%= @pwa == true ? '[PWA]' : '[Normal]' %> Login</h3>
+<h3><%= @pwa == true ? '[iosPWA]' : '[Normal]' %> Login</h3>
 
 <%= form_for :session, url: sessions_path, remote: (@pwa == true ? true : false) do |f| %>
 
