@@ -1,24 +1,8 @@
-# README
+# Qiita PWA AutoLogin
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+## Qiita
+[【実験】iOSでPWAとして起動されたときにLocalStorageに保存したtokenを利用してオートログインさせる \- Qiita](https://qiita.com/NaokiIshimura/items/bf9e6d55c7f3c27d7124)
 
-Things you may want to cover:
+## Heroku
 
-* Ruby version
-
-* System dependencies
-
-* Configuration
-
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+[PWA AutoLogin Test](https://pwa-autologin-test-app.herokuapp.com/)
