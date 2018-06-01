@@ -7,22 +7,14 @@
 
 <% if logged_in? %>
   <div>
-    [Normal Menu]
-    <%= current_user.name %> | <%= link_to "Logout", logout_path, method: :delete, data: { confirm: "Logout" } %>
-  </div>
-  <div>
-    [iosPWA Menu]
+    [Menu]
     <%= current_user.name %>
     | <%= link_to "Logout", logout_path, method: :delete, data: { confirm: "Logout" }, remote: true %>
   </div>
 <% else %>
   <div>
-    [Normal Menu]
-    <%= link_to "Login", login_path %>
-  </div>
-  <div>
-    [iosPWA Menu]
-    <%= link_to "Login", "#{login_path}/?launcher=true" %>
+    [Menu]
+    <%= link_to "Login", login_path %> | <%= link_to "Login(PWA StartURL)", "#{login_path}/?launcher=true" %>
   </div>
 <% end %>
 
